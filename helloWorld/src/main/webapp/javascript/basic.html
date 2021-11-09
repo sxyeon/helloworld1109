@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/basic.html</title>
+    <script>
+        var v1 = 10; // number
+        v1 = 'hello'; // string
+        v1 = true; // boolean
+        v1 = null; // object
+        var V1 = 20; // 대소문자를 구분.
+        v1 = {
+            name: 'hong',
+            age: 20,
+            phone: '010-2345-1212'
+        };
+
+        console.log('hello');
+        console.log('nice');
+        v1 = [10, 20, 30];
+
+        var v2; // undefined
+        v2 = 20;
+        v3 = v1 + v2; // 전역변수.
+
+        var v1 = 'hello';
+        console.log(v1);
+
+        function sum() {
+            var n1 = 20; // 지역변수.
+            var n2 = 30;
+            var n3 = n1 + n2;
+            console.log(n3);
+        }
+        sum();
+        // console.log(n3);
+
+        var thisYearMyAge = 20;
+
+        v1 = '"hello"';
+        v1 = "'hello'";
+        v1 = "20"; // string
+        v2 = 20; // number
+
+        console.log(v1 === v2);
+        console.log(v1 == v2);
+        // console.log(v1 = v2);
+
+        // 0, null, '', => false
+        // -10, 2, 'a', => true
+
+        if (v1 = v2) { // if(20) {}
+            console.log('값이 같습니다.');
+        } else {
+            console.log('값이 다릅니다.');
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

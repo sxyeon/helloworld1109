@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery/JQuery.html</title>
+<script src='jquery-3.6.0.min.js'></script>
+<script>
+
+document.addEventListner("DOMContentLoaded", function(){ // DOMContentLoaded는 document content가 실행되어지면 이라는 의미
+	
+})
+btn.addEventListner('click', function(){
+	
+});
+btn.onclick = function(){
+	
+};
+$(document).ready(loadFnc);
+
+function loadFnc() {
+	
+	let table = $('<table></table>'); // 테이블 요소 만듦
+	$(table).attr('id', 'tbl'); // attr은 setAttribute
+	$(table).append($('<tbody></tbody>'));
+	
+	$(table).append($('<caption>TABLE</caption>')); // 테이블 태그를 가져온다는 의미 // $('#tbl') : id값이 tbl인 것을 가져옴 / 그 하위에 caption 요소를 넣음
+	$('div>div').append(table); // div요소의 하위에 table 만들기 / css 선택자 방법으로 요소 선택
+	console.log(table); // <table></table>
+	
+	$('#tbl>caption').text(); // 테이블 기준으로 캡션 찾아오기 / innerText(textContent), innerHTML
+};
+</script>
+</head>
+<body>
+<div id='container'>
+	<div id="show"></div>
+</div>	
+</body>
+</html>

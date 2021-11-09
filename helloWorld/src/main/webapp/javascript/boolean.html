@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>JavaScript break</h2>
+
+    <p id="demo"></p>
+
+    <script>
+        const letters = new Set(["a", "b", "c"]);
+        letters.add('d');
+        letters.add('e');
+        letters.add('e');
+        letters.add('e');
+        letters.add('e');
+
+        letters.delete('d');
+
+        letters.forEach(function (a, b, c) {
+            console.log(a, b, c);
+        });
+
+        let result = letters.values();
+        console.log(letters.size);
+
+        for (let val of result) {
+            console.log(val);
+        }
+
+        const fruits = new Map(); // key: value => entry
+        fruits.set('apple', 500);
+        fruits.set('banana', 400);
+        let price = fruits.get('apple');
+        console.log(price);
+
+        let fruitAry = [];
+        for (let ent of fruits.entries()) {
+            console.log(ent); // entry 타입 => ['key','val']
+            fruitAry.push(ent);
+        }
+        console.log(fruitAry); // [['apple',500], ['banan', 400]]
+
+        fruits.forEach(function (val, key, map) {
+            console.log(val, key, map);
+        });
+
+        let ary = []; // new Array();
+        let obj = {}; // new Object();
+        let reg = /W3SCHOOLS/i; // new RegExp();
+        console.log(typeof reg);
+
+        let text = "Visit W3Schools!";
+        let n = text.search(reg);
+        console.log(n);
+
+        text = "Visit Microsoft!";
+        result = text.replace(/microsoft/i, "W3Schools");
+        console.log(result);
+        reg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+        // abcdmf.com
+    </script>
+
+</body>
+
+</html>

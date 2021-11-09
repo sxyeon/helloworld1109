@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/document.html</title>
+</head>
+
+<body>
+
+    <script>
+        var n1 = 20; // number
+        n1 = "20"; // string
+        n1 = true;
+        n1 = null;
+        n1 = {
+            name: 'Hong',
+            age: 20
+        }
+
+        var ary = [n1, 'apple', 20, true]; // 
+        for (var val of ary) {
+            console.log(val);
+        }
+
+        window.document.write(n1.name);
+        document.write('<p>' + n1['age'] + '</p>');
+
+        console.log(n1);
+
+        function sum() {
+            var n1 = 10;
+            var n2 = 20;
+            console.log(n1 + n2);
+
+        }
+        sum();
+
+        // if() {
+
+        // }
+        // for() {
+
+        // }
+
+        {
+            let n2 = 'val'; //
+            var n1 = 'new';
+        }
+
+        {
+            let n2 = '20'; // 변수.
+            n2 = 20;
+            n2 = true;
+
+            const n3 = 30; // 상수.
+            // n3 = 40; // 값을 변경 불가.
+
+            const obj = {
+                name: 'Hong',
+                age: 20
+            }
+            // obj = {
+            //     name: 'Hwnag',
+            //     age: 33
+            // }; 
+            obj.name = 'Hwnag';
+            obj['age'] = 23;
+
+            console.log(obj)
+
+        }
+
+        function showInfo() {
+            console.log('Hello, World');
+        }
+        console.log(showInfo); // function정의문 ();
+
+        let newFunc = showInfo;
+        console.log(newFunc);
+        newFunc();
+
+        let showAnother = function () {
+            console.log('Nice, World');
+        }
+        console.log(showAnother);
+        showAnother();
+
+        
+    </script>
+</body>
+
+</html>

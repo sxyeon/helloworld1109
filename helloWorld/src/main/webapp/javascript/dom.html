@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/dom.html</title>
+</head>
+
+<body>
+    <p id='message'>hello</p>
+    <ul id='fruit'>
+        <li>사과</li>
+        <li>바나나</li>
+        <li>체리</li>
+    </ul>
+
+    <script>
+        console.log(this);
+        // console.log(document.body.childNodes[1]);
+        // document.body.childNodes[1].innerHTML = '안녕하세요.';
+
+        // document.body.childNodes[3].childNodes[1].textContent = 'Apple';
+
+        let val = document.getElementById('message');
+        val.textContent = '반갑습니다';
+
+        let ul = document.getElementById('fruit');
+        console.log(ul.children[0].textContent);
+    </script>
+</body>
+
+</html>

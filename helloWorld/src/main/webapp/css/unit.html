@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css/unit.html</title>
+    <style>
+        * {
+            font-size: 10px;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-size: 14px;
+        }
+
+        div {
+            font-size: 1.5em;
+            border: 1px solid red;
+            width: 50vw;
+            height: 20vh;
+        }
+
+        div>div {
+            font-size: 1.5em;
+        }
+
+        div>div>div {
+            font-size: 1.5rem;
+            /* background-color: rgba(214, 150, 31, .5); */
+            background-color: hsla(200, 57%, 60%, .8);
+            /*s:채도, l:명도, a:불투명도*/
+        }
+
+        div#cnt {
+            border-radius: 10px 20px 30px 40px;
+            box-shadow: 10px 20px 20px 30px green;
+        }
+    </style>
+</head>
+
+<body>
+    body font
+    <p>basic font</p>
+    <div id='cnt' style='font-size: 15px;'>cnt</div>
+    <div>content
+        <div>content2
+            <div>content3</div>
+        </div>
+    </div>
+
+</body>
+
+</html>

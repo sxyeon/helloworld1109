@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css/transition.html</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /* transition-property: background-color, border-radius;
+            transition-duration: 2s, 2s;
+            transition-timing-function: ease;
+            transition-delay: 1s; */
+            transition: background-color 2s, border-radius 2s;
+        }
+
+        div:hover {
+            background-color: blue;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>ease</div>
+    <div>linear</div>
+    <div>ease-in</div>
+    <div>ease-out</div>
+    <div>ease-in-out</div>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css/attr.html</title>
+    <style>
+        a {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+        }
+
+        a[target='_self'] {
+            background-color: yellow;
+        }
+
+        h1[title~='first'] {
+            color: red;
+        }
+
+        h1[title*='sec'] {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="https://www.daum.net" target="_blank">다음페이지</a>
+    <a href="http://www.ediya.com" target="_self">이디야</a>
+
+    <h2>Text Selector</h2>
+    
+</body>
+
+</html>

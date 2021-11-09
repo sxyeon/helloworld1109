@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/event1.html</title>
+    <script src="table.js"></script>
+</head>
+
+<body>
+
+    <script>
+        console.log(this); // 최상위객체: window
+
+        let btns = document.querySelectorAll('button');
+        console.log(btns);
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].onclick = function () { // event받는 element.
+                this.parentNode.parentNode.remove();
+            }
+        }
+
+        let obj = {
+            name: 'Hong',
+            age: 20,
+            showInfo: function () {
+                return `${this.name} ,  ${this.age}`; // this는object.
+            }
+        }
+        console.log(obj.showInfo());
+    </script>
+</body>
+
+</html>

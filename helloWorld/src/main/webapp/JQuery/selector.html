@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery/selector.html</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        class Student {
+            constructor(studNo, studName, math, eng, hobby) {
+                this.studNo = studNo;
+                this.studName = studName;
+                this.math = math;
+                this.eng = eng;
+                this.hobby = hobby;
+            }
+            getAverage() {
+                return Math.round((this.math + this.eng) / 2);
+            }
+        }
+        const students = [];
+        let s1 = new Student('21-01', '박소연', 90, 80, '독서');
+        let s2 = new Student('21-02', '김민지', 87, 90, '바둑');
+        let s3 = new Student('21-03', '이민영', 78, 85, '오목');
+        let s4 = new Student('21-04', '성지연', 95, 68, '장기');
+        let s5 = new Student('21-05', '박지윤', 93, 88, '체스');
+        students.push(s1);
+        students.push(s2);
+        students.push(s3);
+        students.push(s4);
+        students.push(s5);
+
+        $(document).ready(function () {
+            let $table = $('<table>').attr('border', '1');
+            let $thead = $('<thead>');
+            let $tbody = $('<tbody>');
+
+            $table.append($thead);   
+            $table.append($tbody);
+            
+            let $th = $('<tr>').append(
+                $('<th>').text('학번'),
+                $('<th>').text('이름'),
+                $('<th>').text('영어'),
+                $('<th>').text('수학'),
+                $('<th>').text('취미'),
+                $('<th>').text('평균'),
+                $('<th>').text('버튼')
+            );
+            $thead.append($tr);
+
+            $(students).each(function(ind, val) {
+                console.log(val);
+
+                let btn = $('<button>삭제</button>');
+                $(btn).click(delFnc);
+                let $tr = $('<tr>').append(
+                    $('<td>').text(val.studNo),
+                    $('<td>').text(val.studName),
+                    $('<td>').text(val.eng),
+                    $('<td>').text(val.math),
+                    $('<td>').text(val.hobby),
+                    $('<td>').text(val.getAverage()),
+                    $('<td>').click(tdFnc).append($('<button>삭제</button>').click(delFnc))
+                );
+                $tr.click(trFnc);
+                $tbody.append($tr);
+            });
+            $('#show').append($table);
+
+            function trFnc() {
+                console.log($(this));
+                let sno = $(this).children().eq(0).text(); // eq(0) 몇 번째 요소를 가지고 올 건지
+                let sname = $(this).children().eq(1).text();
+                window.alert(`학번: ${sno}, 이름: ${sname}`)
+            }
+
+            function tdFnc() {
+                console.log($(this));
+            }
+            
+            // 삭제기능
+            function delFnc() {
+                event.stopPropagation(); // 이벤트 요소를 사용해서 전파되는 것 차단(버튼만 클릭되게 함) / 상위 요소로 이벤트 전달되는 것 막음
+                console.log($(this));
+                $(this).parent().parentsUntil('tbody').remove();
+                // let avg = $(this).parent().prev().text();
+                // let hob = $(this).parent().prev().prev().text();
+                // window.alert(`평균: ${avg}, 취미: ${hob}`);
+            }
+            
+            // let $div = $('<div />').html('<h3>Hello</h3>').attr('id', 'id1'); // 변수 이름에 $ 써도 됨 / html은 innerHTML 속성 / attr : 속성추가
+            // let $p = $('<p />').text('<h3>Hello</h3>').attr('class', 'id1');
+
+            // $('body').append($div, $p);
+
+            // console.log($('div#id1>h3').text());
+            // console.log($('p.id1').text());
+        });
+    </script>
+</head>
+<body>
+    <!-- <div>
+        <h3>Bad</h3>
+    </div>
+    <p>Bad</p> -->
+    <h3>학생명단</h3>
+    <div id="show"></div>
+</body>
+</html>

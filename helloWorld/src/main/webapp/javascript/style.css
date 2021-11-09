@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+}
+
+#addRow {
+    border: 1px solid blue;
+    height: 210px;
+    width: 590px;
+}
+
+#addRow>.control {
+    float: left;
+    width: 435px;
+    border: 1px solid red;
+    height: 200px;
+}
+
+#addRow>.btn {
+    float: left;
+    width: 133px;
+    border: 1px solid red;
+    height: 210px;
+}
+
+#addRow>.btn>button {
+    display: inline-block;
+    width: 70px;
+    margin: 10px;
+}
+
+#addRow>.control {
+    margin: 3px;
+}
+
+#addRow>.control>label {
+    display: inline-block;
+    width: 75px;
+}
+
+#addRow>.control>label:nth-of-type(2n) {
+    background-color: yellow;
+}
+
+#addRow>.control>label:nth-of-type(2n+1):not(:nth-last-of-type(1)) {
+    background-color: pink;
+}
+
+#addRow>.control>input:not([type='radio']) {
+    display: inline-block;
+    width: 125px;
+}
+
+#show {
+    clear: both;
+    float: left;
+    width: 800px;
+    padding-right: 3px;
+    border: 1px solid blue;
+}
+
+#content {
+    float: left;
+    width: 380px;
+    height: 140.5px;
+    border: 1px solid red;
+}
+
+.row {
+    border: 1px solid blue;
+}
+
+.row>.title {
+    display: inline-block;
+    width: 120px;
+    background-color: aqua;
+}
+
+.row>.content {
+    display: inline-block;
+    width: 250px;
+    background-color: yellow;
+}
+
+#show table {
+    width: 800px;
+}
+
+thead>tr>th:nth-of-type(3n+1):not(nth-of-type(1)) {
+    width: 290px;
+}
+
+tbody button {
+    width: 50px;
+}
+
+tbody>tr>td:nth-child(1) {
+    text-align: center;
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+}
+
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}

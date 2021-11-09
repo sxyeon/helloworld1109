@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px red solid;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="show"></div>
+    <script>
+        let randomAry = [];
+        let ind = 0,
+            cnt = 0;
+        let table, tbody, tr, td;
+        table = document.createElement('table');
+        document.getElementById('show').appendChild(table);
+        tr = document.createElement('tr');
+
+        while (randomAry.length != 25) {
+            console.log(cnt++)
+            let randomVal = Math.floor(Math.random() * 25);
+            if (randomAry.indexOf(randomVal) == -1) {
+                randomAry[ind++] = randomVal;
+            }
+        }
+        console.log(randomAry);
+        randomAry.forEach(function (a, b, c) {
+            td = document.createElement('td');
+            td.innerHTML = a;
+            td.onclick = function () {
+                console.log(this.style.backgroundColor = 'blue')
+            }
+            tr.appendChild(td);
+            if (b % 5 == 4) {
+                tr = document.createElement('tr');
+            }
+            table.appendChild(tr);
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/intro.html</title>
+</head>
+
+<body>
+    <button id='on' onclick='turnOnFnc()'>Turn On</button>
+    <img src="https://www.w3schools.com/js/bulboff.gif" alt="">
+    <button id='off' onclick='turnOffFnc()'>Turn Off</button>
+
+    <script>
+        function turnOnFnc() {
+            let img = document.getElementsByTagName('img');
+            img[0].src = "https://www.w3schools.com/js/bulbon.gif";
+        }
+
+        function turnOffFnc() {
+            let img = document.getElementsByTagName('img');
+            img[0].src = "https://www.w3schools.com/js/bulboff.gif";
+        }
+    </script>
+</body>
+
+</html>

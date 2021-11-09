@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <select name="list" id="list"></select>
+
+    <script>
+        let elements = [{
+            name: 'HTML5',
+            val: 1
+        }, {
+            name: 'CSS3',
+            val: 2
+        }, {
+            name: 'JavaScript',
+            val: 3
+        }, {
+            name: 'TypeScript',
+            val: 4
+        }];
+
+        let opt = '';
+        for (let i = 0; i < elements.length; i++) {
+            if (i == 2) {
+                opt += '<option selected value=' + elements[i].val + '>' + elements[i].name + '</option>';
+
+            } else {
+                opt += '<option value=' + elements[i].val + '>' + elements[i].name + '</option>';
+
+            }
+        }
+        document.getElementById('list').innerHTML = opt;
+    </script>
+</body>
+
+</html>
