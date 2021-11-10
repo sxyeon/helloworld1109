@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jq_1.html</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $("wrap p:hidden").css({
+                "display":"block",
+                "background":"#ff0"
+            });
+
+            var z1 = $("zone1 :selected").val();
+            console.log(z1);
+
+            var z2 = $("zone2 :checked").val();
+            console.log(z2);
+
+            var z3 = $("zone3 :checked").val();
+            console.log(z3);
+        })
+    </script>
+</head>
+
+<body>
+    <div id="outer_wrap">
+        <h1>콘텐츠 탐색 선택자</h1>
+        <section id="inner_1">
+            <h1>contains(), contents(), has()</h1>
+            <p>
+                <span>내용1</span>
+            </p>
+            <p>
+                <strong>내용2</strong>
+            </p>
+            <p>
+                <span>내용3</span>
+            </p>
+        </section>
+        <section id="inner_2">
+            <h1>not(), end()</h1>
+            <p>내용4</p>
+            <p>내용5</p>
+            <p>내용6</p>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jQuery/fileUpload.html</title>
+<style>
+th {
+	width: 80px;
+}
+</style>
+<script src="jquery-3.6.0.min.js"></script>
+</head>
+<body>
+	<fieldset>
+		<!--묶어주려고-->
+		<legend>파일업로드</legend>
+		<!--title-->
+		<form id="frm" action="../FileUploadServlet" method="post"
+			enctype="multipart/form-data">
+			<!--파일을 보낼때는 post, multipart/form-data 해야함-->
+			<table>
+				<tr>
+					<td>상품명</td>
+					<td><input type="text" name="author"></td>
+				</tr>
+				<tr>
+					<td>상품설명</td>
+					<td><textarea name="prod_desc" cols="30" rows="5"></textarea></td>
+				</tr>
+				<tr>
+					<td>평점</td>
+					<td><input type="number" name="like_it"></td>
+				</tr>
+				<tr>
+					<td>가격</td>
+					<td><input type="number" name="origin_price"></td>
+				</tr>
+				<tr>
+					<td>할인가격</td>
+					<td><input type="number" name="sale_price"></td>
+				</tr>
+				<tr>
+					<td>파일</td>
+					<td><input type="file" name="prod_image"></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit" value="업로드"></td>
+				</tr>
+			</table>
+		</form>
+	</fieldset>
+	<hr>
+	<div id="show"></div>
+
+	<script>
+		// ajax 호출
+		$.ajax({
+					url : '../GetItemServlet',
+					dataType : 'json',
+					success : function(result) {
+						console.log(result)
+						let table, thead, tbody, tr, td;
+						table = $('<table>');
+						thead = $('<thead>');
+						$(thead).append(
+								$('<tr>').append($('<th>').text('상품ID'),
+										$('<th>').text('상품명'),
+										$('<th>').text('평가점수'),
+										$('<th>').text('상품가격'),
+										$('<th>').text('할인가격'),
+										$('<th>').text('이미지')));
+						$(table).append(thead);
+
+						tbody = $('<tbody>');
+						result.forEach(function(val, ind) {
+							let tr = $('<tr>');
+							$(tr).append(
+								$('<td>').text(val.prodId),
+								$('<td>').text(val.prodItem),
+								$('<td>').text(val.likeIt),
+								$('<td>').text(val.originPrice),
+								$('<td>').text(val.salePrice),
+								$('<td>').html($('<a href="../shop-homepage/item.html?id='+ val.prodId + '"><img width="50px" src="../images/' + val.prodImage +'"></a>'))
+							);
+							$(tbody).append(tr);
+						})
+
+						$('#show').append(table);
+
+						$('th').eq(1).css('width', '200px')//
+						.end().eq(5).css('width', '120px');
+					},
+					error : function() {
+						console.log('reject');
+					}
+				});
+
+		function formSubmit() {
+			event.preventDefault();
+			let formData = new FormData(); // key:value
+			formData.append('prod_item', $('input[name"prod_item"]').val()); // prod_name에 사용자가 입력한 값 담기
+			formData.append('prod_desc', $('textarea[name="prod_desc"]').val());
+			formData.append('like_it', $('input[name="like_it"]').val());
+			formData.append('origin_price', $('input[name="origin_price"]')
+					.val());
+			formData.append('sale_price', $('input[name="sale_price"]').val());
+			formData.append('prod_image', document
+					.querySelector('input[name="prod_image"]').files[0]); // 첫 번째 파일을 넘김
+			console.log('hhhhhh');
+
+			formData.forEach(function(val, ind) {
+				console.log(val);
+			})
+			// 제이쿼리로 ajax 호출 파일 업로드
+			$
+					.ajax({
+						url : $('#frm').attr('action'), // form태그가 가지고 있는 속성 중 action 가지고 오기 / ../FormUpdateServlet
+						type : 'post',
+						data : formData,
+						processData : false,
+						contentType : false,
+						dataType : 'json', // 알아서 파싱해서 결과값 던져줌
+						success : function(result) {
+							console.log(result);
+							// tr 만들어서
+							let tr = $('<tr>')
+									.append(
+											$('<td>').text(result.prodId),
+											$('<td>').text(result.prodItem),
+											$('<td>').text(result.likeIt),
+											$('<td>').text(result.originPrice),
+											$('<td>').text(result.salePrice),
+											$('<td>')
+													.html(
+															'<img width="50px" src="../images/' + result.prodImage + '">'));
+							$('#tbl>tbody').append(tr);
+
+							// 입력값 초기화
+							$('input[name"prod_item"]').val('');
+							$('input[name"prod_desc"]').val('');
+							$('input[name"like_It"]').val('');
+							$('input[name"origin_price"]').val('');
+							$('input[name"sale_price"]').val('');
+						},
+						error : function(reject) {
+							console.log(reject)
+						}
+					});
+		}
+	</script>
+</body>
+</html>

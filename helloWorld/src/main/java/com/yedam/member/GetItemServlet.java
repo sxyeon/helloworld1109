@@ -25,12 +25,13 @@ public class GetItemServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		// 한글처리. UTF-8지정
+		// 한글 처리. UTF-8
+		
 		MemDAO dao = new MemDAO();
-		List<ItemVO> Itemlist = dao.getItemList();
+		List<ItemVO> itemList = dao.getItemList();
 		
 		Gson gson = new GsonBuilder().create();
-		response.getWriter().print(gson.toJson(Itemlist));
+		response.getWriter().print(gson.toJson(itemList));
 	}
 
 	

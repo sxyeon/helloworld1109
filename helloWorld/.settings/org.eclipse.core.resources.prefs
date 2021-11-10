@@ -1,4 +1,6 @@
 eclipse.preferences.version=1
+encoding//src/main/java/com/yedam/member/GetItemServlet.java=UTF-8
 encoding//src/main/java/com/yedam/member/GetMemberJsonServ.java=UTF-8
+encoding//src/main/java/com/yedam/member/MemDAO.java=UTF-8
 encoding//src/main/java/com/yedam/member/MemberDAO.java=UTF-8
 encoding//src/main/java/com/yedam/member/ModifyMemberServlet.java=UTF-8

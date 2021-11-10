@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="EUC-KR">
+	<title>shop-homepage/item.html</title>
+	<script src="jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+	<div id="container">
+		상품아이디<div id="prodId"></div>
+		상품명<div id="prodName"></div>
+	</div>
+	<h3>item.page</h3>
+	<script>
+		let loc = location.href; // location은 문자열
+		let pos = loc.indexOf('=');
+		let id = loc.substring(pos + 1);
+		console.log(loc.substring(pos + 1));
+
+		$.ajax({
+			url: 'data.json',
+			data: 'prodId=' + id,
+			dataType: 'json',
+			success: function(result) {
+				$('#prodId').text(result.prodId);
+				$('#prodName').text(result.prodName);
+			},
+			error: function(reject) {
+				console.error(reject)
+			}
+		});
+	</script>
+</body>
+
+</html>

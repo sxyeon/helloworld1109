@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+       $(document).ready(function(){
+            $('#leftToRight').on('click',function(){
+                $('#rej').prepend($('#subj :selected'));
+            })
+            $('#rightToLeft').on('click',function(){
+                $('#rej :selected').prependTo($('#subj'));
+            })
+        })
+    </script>
+</head>
+<body>
+    <select name="subjects" id="subj" size="10">
+        <option >왼쪽1</option>
+        <option >왼쪽2</option>
+        <option >왼쪽3</option>
+        <option >왼쪽4</option>
+        <option >왼쪽5</option>
+    </select>
+    <button id="leftToRight">왼쪽</button>
+    <button id="rightToLeft">오른쪽</button>
+    <select name="rejects" id="rej" size="10">
+        <option>오른쪽1</option>
+        <option>오른쪽2</option>
+        <option>오른쪽3</option>
+        <option>오른쪽4</option>
+        <option>오른쪽5</option>
+    </select>
+</body>
+</html>
